@@ -1,0 +1,570 @@
+Okay, here's a breakdown of all the pages, sections, and their key UI elements (buttons, form fields, etc.) in the LVLHUB AI Control Panel wireframe, formatted as bullet points:
+
+I. Global Elements:
+
+App.jsx (Main Application Container):
+
+Wraps the entire application.
+
+Includes react-router-dom for routing.
+
+Includes react-hot-toast for global notifications.
+
+Manages global state:
+
+userRole (admin, editor, viewer).
+
+isSidebarCollapsed (left sidebar state).
+
+Global error handling.
+
+Resizable Panel Widths
+
+Persistent Scroll Position
+
+Structure:
+
+Left Sidebar (resizable).
+
+Main Content Area (with routing).
+
+Right Sidebar (resizable, contextual AI assistant).
+
+LeftSidebar.jsx:
+
+Navigation: Links to all main sections of the application.
+
+Collapsible: Toggle button (hamburger icon) to collapse/expand.
+
+User Role-Based Visibility: Shows/hides sections based on userRole.
+
+Links:
+
+Dashboard
+
+Niches (admin, editor)
+
+Content Pipeline (dropdown, admin, editor)
+
+Topic Generation
+
+Article Creation
+
+Content Transformation
+
+Translation
+
+Distribution
+
+Leads (admin, editor)
+
+Advertising (admin, editor)
+
+Performance
+
+Settings (admin only)
+
+AI Agents (admin only)
+
+Resizing: Vertical resize handle.
+
+RightSidebar.jsx:
+
+Contextual AI Assistant: Displays information and provides assistance relevant to the current page.
+
+Conversation History: Displays a list of messages (AI and user). Placeholder for now.
+
+Input Field: Text input for user questions.
+
+Send Button: Sends user questions (placeholder).
+
+Resizing: Vertical resize handle.
+
+Available AI Managers List of roles the chatbot can fufill.
+
+II. Pages:
+
+Dashboard.jsx:
+
+Heading: "Dashboard"
+
+Quick Actions (Conditional - admin, editor):
+
+"Generate Topics" button.
+
+"Start Article Creation" button.
+
+"Pause All Pipelines" button.
+
+"Start Lead Scraping" button.
+
+"Launch Ad Campaign" button.
+
+System Status:
+
+"System Status" heading.
+
+Status badge (running, paused, error).
+
+Progress bar.
+
+Key Performance Indicators:
+
+"Key Performance Indicators" heading.
+
+Total Articles.
+
+Website Traffic (with placeholder chart).
+
+Conversion Rate (with placeholder chart).
+
+Leads Generated.
+
+Ad Spend.
+
+Ad ROI.
+
+Niches.jsx:
+
+Heading: "Niche Management"
+
+"Add Niche" button (Conditional: admin, editor): Opens a dialog.
+
+Dialog:
+
+"Add New Niche" heading.
+
+"Niche Name" input field (with validation).
+
+"Cancel" button.
+
+"Add" button.
+
+Niches Table (Conditional: Large screens):
+
+Columns: Niche, Status, Activity (sparkline placeholder), Actions (admin, editor).
+
+Per-Row Actions (admin, editor):
+
+Edit (pencil icon): Inline editing of niche name.
+
+Save (checkmark icon) button.
+
+Cancel (X icon) button.
+
+Delete
+
+Confirmation dialog
+
+"Confirm" button
+
+"Cancel" button
+
+Status toggle (switch component).
+
+Card View (Conditional: Small screens): Displays Niches in cards
+
+Loading Message
+
+Pipeline.jsx (Parent Route):
+
+Heading: "Content Pipeline"
+
+Pipeline Visualizer: Custom component showing pipeline stages (Topic Generation, Article Creation, Content Transformation, Translation, Distribution) with status indicators.
+
+Outlet: For nested routes (TopicGeneration, ArticleCreation, etc.).
+
+TopicGeneration.jsx:
+
+Heading: "Topic Generation"
+
+Pipeline Status Card:
+
+"Pipeline Status" heading.
+
+Pause/Resume/Start buttons (logic to control pipeline stage).
+
+Status Indicator.
+
+Generated Topics Table:
+
+Columns: Topic, Niche, Status, Actions (admin/editor).
+
+Per-Row Actions (admin/editor):
+
+Dropdown Menu
+
+"Approve"
+
+"Reject"
+
+ArticleCreation.jsx:
+
+Heading: "Article Creation"
+
+Pipeline Status Card:
+
+"Pipeline Status" heading
+
+Pause/Resume/Start buttons (logic to control pipeline stage).
+
+Status Indicator.
+
+Created Articles Table:
+
+Columns: Title, Topic, Niche, Status, Actions (admin/editor)
+
+Per-Row Actions (admin/editor):
+
+Dropdown Menu
+
+"View" (placeholder for opening article)
+
+ContentTransformation.jsx:
+
+Heading: "Content Transformation"
+
+Pipeline Status Card:
+
+"Pipeline Status" heading.
+
+Start/Pause/Resume buttons (logic to control pipeline stage).
+
+Status Indicator
+
+Transformation Settings:
+
+For each content type (Blog Posts, Social Media Captions, Video Scripts, etc.):
+
+"Enable" switch.
+
+"Settings" button (opens a dialog with detailed configuration).
+
+Dialog:
+
+Content type-specific settings (e.g., target word count, style, SEO keywords for blog posts).
+
+Input fields, text areas, dropdowns, switches as appropriate for each content type.
+
+Translation.jsx:
+
+Heading: "Translation"
+
+Pipeline Status Card:
+* "Pipeline Status" heading
+* Pause/Resume/Start buttons (logic to control pipeline stage).
+* Status Indicator.
+
+Target Languages:
+
+Dropdown to add languages.
+
+Selected languages displayed as tags with remove buttons.
+
+Translation Status Table:
+
+Columns: Article, Language, Status
+
+Distribution.jsx:
+
+Heading: "Distribution"
+
+Pipeline Status Card:
+
+"Pipeline Status" heading
+
+Pause/Resume/Start buttons (logic to control pipeline stage).
+
+Status Indicator.
+
+Distribution Status Table:
+
+Columns: Article, Platform, Status, Published URL (link if available).
+
+Performance.jsx:
+
+Heading: "Performance Analytics"
+
+Time Range Selector: Dropdown (Last 7 Days, Last 30 Days, Last 90 Days, All Time).
+
+Cards for Metrics (with placeholder charts):
+
+Website Traffic
+
+Social Media Engagement
+
+Conversion Rates
+
+Top Performing content (placeholder text).
+
+Settings.jsx:
+
+Heading: "Settings"
+
+Tabs:
+
+General:
+
+"System Enabled" switch.
+
+"Default Language" dropdown.
+
+AI Model:
+
+"Creativity Level" input (number, 0-1).
+
+"Writing Style" dropdown.
+
+Translation:
+
+Mention of full configuration in Translation Pipeline.
+
+Users (admin only):
+
+"Add User" section with Email input and Send Invite button.
+
+User list table: Email, Role, Status.
+
+API Keys:
+
+Input fields for API keys (e.g., OpenAI, Google).
+
+AIAgents.jsx:
+
+Heading: "AI Agents"
+
+Agents Table:
+
+Columns: Agent Name, Role, Status (switch, admin only), Actions (admin only).
+
+Per-Row Actions (admin only):
+
+Dropdown Menu
+
+"Configure" (placeholder).
+
+"Delete" (with confirmation).
+
+Leads.jsx (Parent)
+
+Heading: "Lead Generation & Outreach"
+
+Description
+
+Outlet
+
+LeadsPlatforms.jsx:
+
+Heading: "Lead Generation Platforms"
+
+Available Platforms List:
+
+For each platform:
+
+Platform name.
+
+Enable/Disable switch.
+
+"Settings" button (opens a dialog).
+
+Dialog:
+
+Uses PlatformConfig component to render platform-specific settings. Examples provided for:
+
+LinkedIn: API Key (optional)
+
+Google Maps: API Key, Location, Radius, Keywords
+
+Generic Website: URL.
+
+"Close" Button
+
+"Save Settings" button
+
+LeadsDataPoints.jsx:
+
+Heading: "Lead Data Points"
+
+Platform Cards:
+
+For each enabled platform:
+
+Platform name.
+
+Checkboxes for each available data point (dynamically loaded based on platform).
+
+"Save Selection" Button
+
+LeadsSearchCriteria.jsx:
+
+Heading: "Lead Search Criteria"
+
+Platform Cards:
+
+For each enabled platform:
+
+Platform name.
+
+Platform-specific input fields (e.g., keywords, location, industry for LinkedIn). Uses separate components for each platform (e.g., LinkedInCriteria, GoogleMapsCriteria).
+
+"Save Criteria" Button
+
+LeadsOutreach.jsx:
+
+Heading: "Lead Outreach Strategies"
+
+Sections:
+
+Email Outreach: Textarea for email template.
+
+Social Media Outreach: Textarea for social media message.
+
+Follow-Up Strategy: Dropdown to select a pre-defined strategy.
+
+"Save Settings" Button.
+
+LeadsView.jsx:
+
+Heading: "View Leads"
+
+Leads Table
+
+Name
+
+Title
+
+Company
+
+Platform
+
+Source Url
+
+Status
+
+LeadsChatbotConfig.jsx
+
+Heading: "AI Chatbot Configuration"
+
+Chatbot Name: Input Field
+
+Greeting Message: Textarea
+
+Tone: Select Dropdown (Helpful, Enthusiastic, Formal, Casual).
+
+Response Delay: Input Number
+
+Fallback Response: Textarea
+
+Opening Hours: Input
+
+"Save Settings" button
+
+LeadsAIAgents.jsx
+
+Heading: "AI Agents for Lead Generation"
+
+Agent Name
+
+Role
+
+Status
+
+Actions (configure, delete)
+
+Advertising.jsx (Parent):
+
+Heading: "Advertising Engine"
+
+Description
+
+Outlet
+
+AdvertisingCampaigns.jsx:
+
+Heading: "Advertising Campaigns"
+
+"Create New Campaign" button (admin, editor).
+
+Campaigns Table:
+
+Columns: Campaign Name, Platform, Status, Budget, Actions (admin, editor).
+
+Per-Row Actions (admin, editor):
+
+Edit button (pencil icon).
+
+Delete button (X icon).
+
+AdvertisingPlatforms.jsx:
+
+Heading: "Advertising Platforms"
+
+Available Platforms List:
+
+For each platform:
+
+Platform name.
+
+Enable/Disable switch.
+
+"Settings" button (opens a dialog).
+
+Dialog:
+
+Uses PlatformConfigurator component to render platform-specific settings. Examples:
+
+Google Ads: API Key, Customer ID.
+
+Facebook Ads: Access Token, Account ID.
+
+Twitter Ads: Api Key, Api Secret Key.
+
+"Close" Button
+
+"Save Settings" button
+
+AdvertisingBudgets.jsx:
+
+Heading: "Advertising Budgets"
+
+Budget Allocations Table:
+
+Columns: Platform, Campaign, Budget (editable input field).
+
+Actions (Edit and Delete Buttons)
+
+AdvertisingPerformance.jsx:
+
+Heading: "Advertising Performance"
+
+Time Range Selector: Dropdown (Last 7 Days, Last 30 Days, Last 90 Days, All Time).
+
+Cards for Metrics (with placeholder charts):
+
+Impressions
+
+Clicks
+
+Conversions
+
+Cost
+
+Return on Ad Spend (ROAS)
+
+AdvertisingAIAgents.jsx
+
+Heading: "AI Agents for Advertising"
+
+Agent Name
+
+Role
+
+Status
+
+Actions (configure, delete)
+
+NotFound.jsx:
+
+Heading: "404 - Page Not Found"
+
+This detailed breakdown should give you a clear picture of the UI structure and all the interactive elements on each page. Remember that many of the "actions" are placeholders in this wireframe; they would need to be connected to API calls and backend logic in a fully functional application.
