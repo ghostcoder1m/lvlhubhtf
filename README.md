@@ -1,4 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LVLHUB AI Content Engine
+
+A Next.js application for AI-powered content generation and management.
+
+## Features
+
+- Content Pipeline Management
+- Lead Generation
+- AI Agents
+- Performance Analytics
+- Real-time Chat Interface
+- Multi-role Support (Admin, Editor, Viewer)
+
+## Docker Setup
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Development
+
+To run the application in development mode:
+
+```bash
+docker compose up dev
+```
+
+The application will be available at http://localhost:3000 with hot-reload enabled.
+
+### Production
+
+To run the application in production mode:
+
+```bash
+docker compose up prod
+```
+
+The application will be available at http://localhost:3000.
+
+### Building the Image
+
+To build the Docker image:
+
+```bash
+docker build -t lvlhub .
+```
+
+## Local Development Setup
+
+If you prefer to run the application without Docker:
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Run the development server:
+```bash
+npm run dev
+```
+
+3. Build for production:
+```bash
+npm run build
+```
+
+4. Start production server:
+```bash
+npm start
+```
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+# Add your environment variables here
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License.
 
 ## Getting Started
 
